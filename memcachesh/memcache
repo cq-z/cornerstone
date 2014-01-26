@@ -1,0 +1,89 @@
+#!/bin/sh
+#
+# Startup script for the server of memcached
+#
+# processname: memcached
+# pidfile: /etc/memcached/memcached.pid
+# logfile: /etc/memcached/memcached_log.txt
+# memcached_home: /etc/memcached
+# chkconfig: 35 21 79
+# description: Start and stop memcached Service
+
+# Source function library
+. /etc/rc.d/init.d/functions
+
+RETVAL=0
+
+prog="memcached"
+basedir=/usr/local
+cmd=${basedir}/bin/memcached
+pidfile="$basedir/${prog}.pid"
+#logfile="$basedir/memcached_log.txt"
+
+# 设置memcached启动参数
+ipaddr="127.0.0.1"               # 绑定侦听的IP地址
+port="12000"                    # 服务端口
+username="root"                 # 运行程序的用户身份
+max_memory=512                   # default: 64M | 最大使用内存
+max_simul_conn=30000             # default: 1024 | 最大同时连接数
+#maxcon=51200
+#growth_factor=1.3              # default: 1.25 | 块大小增长因子
+#thread_num=6                   # default: 4
+#verbose="-vv"                  # 查看详细启动信息
+#bind_protocol=binary           # ascii, binary, or auto (default)
+
+start() {
+    echo -n $"Starting service: $prog"
+    $cmd -d -m $max_memory -u $username -l $ipaddr -p $port -c $max_simul_conn -P $pidfile
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch /var/lock/subsys/$prog
+}
+
+stop() {
+    echo -n $"Stopping service: $prog  "
+    run_user=`whoami`
+        pidlist=`ps -ef | grep $run_user | grep memcached | grep -v grep | awk '{print($2)}'`
+        for pid in $pidlist
+        do
+#           echo "pid=$pid"
+            kill -9 $pid
+            if [ $? -ne 0 ]; then
+                return 1
+            fi
+        done
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/$prog
+}
+
+# See how we were called.
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    reload)
+        reload
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    condrestart)
+        if [ -f /var/lock/subsys/$prog ]; then
+            stop
+            start
+        fi
+        ;;
+    status)
+        status memcached
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart|status}"
+        exit 1
+esac
+
+exit $RETVAL
