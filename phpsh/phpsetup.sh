@@ -174,7 +174,7 @@ fi
 --enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl --with-curlwrappers \
 --enable-mbregex  --enable-fpm  --enable-mbstring --with-mcrypt --with-gd=$2/gd2/ --enable-gd-native-ttf \
 --with-openssl --with-mhash --enable-pcntl --enable-sockets --with-ldap --with-ldap-sasl --with-xmlrpc \
---enable-zip --enable-soap --enable-opcache=no
+--enable-zip --enable-soap 
 make && make install
 
 #¿½±´PHP-FPMÅäÖÃÎÄ¼ş
