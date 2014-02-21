@@ -1,19 +1,19 @@
 #!/bin/bash
-#PHP5.3°²×°£¬»ùÓÚCentos 6.2 64Î»
-#½«¸Ã½Å±¾¼°ÏàÓ¦µÄÅäÖÃÎÄ¼þ·ÅÖÁ·þÎñÆ÷Ö´ÐÐ¼´¿É
+#PHP5.3ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Centos 6.2 64Î»
+#ï¿½ï¿½ï¿½Ã½Å±ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð¼ï¿½ï¿½ï¿½
 
-#°²×°×é¼þ
+#ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½
 yum -y install gcc-c++ bzip2 bzip2-devel libpng-devel libtiff-devel freetype-devel zlib zlib-devel libtool  gcc make
 yum -y install autoconf e4fsprogs libjpeg  libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel krb5 krb5-devel libidn libidn-devel openssl openssl-devel openldap openldap-devel  openldap-clients openldap-servers ImageMagick-devel patch libaio gd-devel
 
-#»ñÈ¡µ±Ç°Â·¾¶
+#ï¿½ï¿½È¡ï¿½ï¿½Ç°Â·ï¿½ï¿½
 cur_dir=$(pwd)
 
 
 
 
-#±àÒë°²×°libjpeg
-#½øÈëÏÂÔØÄ¿Â¼
+#ï¿½ï¿½ï¿½ë°²×°libjpeg
+#ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼
 if [ -d $1"/soft/jpeg" ];then 
    cd $1/soft/jpeg
 else
@@ -33,8 +33,8 @@ mkdir $2/jpeg/man/man1
 make && make install
 
 
-#±àÒë°²×°libiconv
-#½øÈëÏÂÔØÄ¿Â¼
+#ï¿½ï¿½ï¿½ë°²×°libiconv
+#ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼
 if [ -d $1"/soft/libiconv" ];then 
    cd $1/soft/libiconv
 else
@@ -45,8 +45,8 @@ fi
 ./configure  --prefix=$2/libiconv
 make && make install
 
-#±àÒë°²×°GD2
-#½øÈëÏÂÔØÄ¿Â¼
+#ï¿½ï¿½ï¿½ë°²×°GD2
+#ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼
 if [ -d $1"/soft/libgd" ];then 
    cd $1/soft/libgd
 else
@@ -57,8 +57,8 @@ fi
 ./configure --prefix=$2/gd2 --with-jpeg=$2/jpeg/
 make && make install
 
-#±àÒë°²×°LibXML2
-#½øÈëÏÂÔØÄ¿Â¼
+#ï¿½ï¿½ï¿½ë°²×°LibXML2
+#ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼
 if [ -d $1"/soft/libxml2" ];then 
    cd $1/soft/libxml2
 else
@@ -70,8 +70,8 @@ fi
 make && make install
 
 
-#±àÒë°²×°PCRE
-#½øÈëÏÂÔØÄ¿Â¼
+#ï¿½ï¿½ï¿½ë°²×°PCRE
+#ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼
 if [ -d $1"/soft/pcre" ];then 
    cd $1/soft/pcre
 else
@@ -82,10 +82,10 @@ fi
 ./configure --prefix=$2/pcre
 make && make install
 
-#ÀÁÈË°²×° mcrypt
+#ï¿½ï¿½ï¿½Ë°ï¿½×° mcrypt
 #yum install libmcrypt libmcrypt-devel mcrypt mhash
-#±àÒë°²×°LibMcrypt
-#½øÈëÏÂÔØÄ¿Â¼
+#ï¿½ï¿½ï¿½ë°²×°LibMcrypt
+#ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼
 if [ -d $1"/soft/libmcrypt" ];then 
    cd $1/soft/libmcrypt
 else
@@ -114,8 +114,8 @@ ln -s $2/lib/libmhash.so.2 /usr/lib/libmhash.so.2
 ln -s $2/lib/libmhash.so.2.0.1 /usr/lib/libmhash.so.2.0.1
 
 
-#±àÒë°²×°mhash
-#½øÈëÏÂÔØÄ¿Â¼
+#ï¿½ï¿½ï¿½ë°²×°mhash
+#ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼
 if [ -d $1"/soft/mhash" ];then 
    cd $1/soft/mhash
 else
@@ -134,8 +134,8 @@ ln -s $2/lib/libmhash.so.2 /usr/lib64/libmhash.so.2
 ln -s $2/lib/libmhash.so.2.0.1 /usr/lib64/libmhash.so.2.0.1  
 
 
-#±àÒë°²×°mcrypt
-#½øÈëÏÂÔØÄ¿Â¼
+#ï¿½ï¿½ï¿½ë°²×°mcrypt
+#ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼
 if [ -d $1"/soft/mcrypt" ];then 
    cd $1/soft/mcrypt
 else
@@ -149,7 +149,7 @@ make
 make install
 
 
-#ÆäËü×é½¨±àÒëºÍÉèÖÃ
+#ï¿½ï¿½ï¿½ï¿½ï¿½é½¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 ln -s /usr/lib64/libpng.so /usr/lib/
 yum -y install openldap openldap-devel curl-devel
 cp -frp /usr/lib64/libldap* /usr/lib/
@@ -158,8 +158,8 @@ ln -s $2/mysql/lib/libmysqlclient.so.18 /usr/lib64
 
 
 
-#±àÒë°²×°PHP
-#½øÈëÏÂÔØÄ¿Â¼
+#ï¿½ï¿½ï¿½ë°²×°PHP
+#ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼
 if [ -d $1"/soft/php" ];then 
    cd $1/soft/php
 else
@@ -170,26 +170,26 @@ fi
 ./configure --prefix=$2/php --with-config-file-path=$2/php/etc \
 --with-mysql=$2/mysql --with-mysqli=$2/mysql/bin/mysql_config \
 --with-iconv-dir=$2/lib --with-freetype-dir=$2/lib --with-jpeg-dir=$2/jpeg --with-png-dir --with-zlib \
---with-libxml-dir=/usr --enable-xml  --enable-safe-mode --enable-bcmath \
+--with-libxml-dir=$2/usr --enable-xml  --enable-safe-mode --enable-bcmath \
 --enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl --with-curlwrappers \
 --enable-mbregex  --enable-fpm  --enable-mbstring --with-mcrypt --with-gd=$2/gd2/ --enable-gd-native-ttf \
 --with-openssl --with-mhash --enable-pcntl --enable-sockets --with-ldap --with-ldap-sasl --with-xmlrpc \
 --enable-zip --enable-soap 
 make && make install
 
-#¿½±´PHP-FPMÅäÖÃÎÄ¼þ
+#ï¿½ï¿½ï¿½ï¿½PHP-FPMï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
 cat $cur_dir/php-fpm.conf > $2/php/etc/php-fpm.conf
 
-#¿½±´PHP.INIÅäÖÃÎÄ¼þ
+#ï¿½ï¿½ï¿½ï¿½PHP.INIï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
 cat $cur_dir/php.ini > $2/php/etc/php.ini
 
-#¿½±´Ö´ÐÐ½Å±¾µ½·þÎñÄ¿Â¼
+#ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð½Å±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼
 cat $cur_dir/php-fpm > /etc/init.d/php-fpm
 
-#ÐÞ¸Äphp-fpmÈ¨ÏÞ
+#ï¿½Þ¸ï¿½php-fpmÈ¨ï¿½ï¿½
 chmod 755 /etc/init.d/php-fpm
 
-#¿ªÆôphp-fpm·þÎñ
+#ï¿½ï¿½ï¿½ï¿½php-fpmï¿½ï¿½ï¿½ï¿½
 chkconfig --add php-fpm
 chkconfig --level 3 php-fpm on
 service php-fpm start
