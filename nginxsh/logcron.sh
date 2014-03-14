@@ -9,8 +9,8 @@ date=`date -d "yesterday" +"%Y%m%d"`
 
 remove=30
 
-ls ${log_dir}> filename
-for file in `cat filename`
+ls ${log_dir}> /tmp/filename
+for file in `cat /tmp/filename`
 do
 if [ -d $file ]
 then
