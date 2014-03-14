@@ -7,16 +7,24 @@ log_dir="/data/logs"
 #The path for Nginx logs path by cuted
 date=`date -d "yesterday" +"%Y%m%d"`
 
-#Change logformat as combined and cut Nginx logs
-                /bin/mv  ${log_dir}/access.log ${log_dir}/access${date}.log
-                /bin/mv  ${log_dir}/$i/error.log ${log_dir}/error${date}.log
-for i in test
-        do
-                /bin/mv  ${log_dir}/$i/access.log ${log_dir}/$i/access${date}.log
-                /bin/mv  ${log_dir}/$i/error.log ${log_dir}/$i/error${date}.log
-        done
+remove=30
+
+ls ${log_dir}> filename
+for file in `cat filename`
+do
+if [ -d $file ]
+then
+  if [ -s ${log_dir}/$file/access.log ]
+  then
+    /bin/mv  ${log_dir}/$file/access.log ${log_dir}/$file/access${date}.log
+  fi
+  if [ -s ${log_dir}/$file/error.log ]
+  then
+    /bin/mv  ${log_dir}/$file/error.log ${log_dir}/$file/error${date}.log
+  fi
+fi
+done
+find /data/logs/ -name '*.log'  -mtime +${remove} | xargs rm -f
 
 #Reopen Nginx logs file
-kill -USR1 `cat  /usr/local/nginx/var/nginx.pid`
-#删除60天前的访问日志文�?find /data/logs/*/access*.log -mtime +60 |xargs rm -f
-#删除120天前的错误日志文�?find /data/logs/*/error*.log -mtime +120 |xargs rm -f
+kill -USR1 `cat  /usr/local/nginx/var/nginx.pid`f
