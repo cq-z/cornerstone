@@ -1,4 +1,3 @@
-#!/bin/bash
 # This script run at 00:00
 
 # The Nginx logs path
@@ -14,13 +13,13 @@ for file in `cat /tmp/filename`
 do
 if [ -d ${log_dir}/${file} ]
 then
-  if [ -s ${log_dir}/$file/access.log ]
+  if [ -s ${log_dir}/${file}/access.log ]
   then
     /bin/mv  ${log_dir}/${file}/access.log ${log_dir}/${file}/access${date}.log
   fi
   if [ -s ${log_dir}/${file}/error.log ]
   then
-    /bin/mv  ${log_dir}/$file/error.log ${log_dir}/${file}/error${date}.log
+    /bin/mv  ${log_dir}/${file}/error.log ${log_dir}/${file}/error${date}.log
   fi
 fi
 done
