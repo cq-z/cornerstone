@@ -1,7 +1,7 @@
 LNMP安装脚本
 （如有需要替换软件版本直接替换soft文件夹下的tar.gz格式源码包或是文件夹，注意:确保解压后路径不带版本号，例如php解压后的文件夹名称就是php）
 版本信息：
-nginx 1.5.8				http://nginx.org/en/download.html
+nginx 1.6.0				http://nginx.org/en/download.html
 
 
 php 5.5.8				http://cn2.php.net/downloads.php
