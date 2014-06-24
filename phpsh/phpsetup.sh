@@ -1,19 +1,19 @@
 #!/bin/bash
-#PHP5.3°²×°£¬»ùÓÚCentos 6.2 64Î»
-#½«¸Ã½Å±¾¼°ÏàÓ¦µÄÅäÖÃÎÄ¼ş·ÅÖÁ·şÎñÆ÷Ö´ĞĞ¼´¿É
+#PHP5.3å®‰è£…ï¼ŒåŸºäºCentos 6.2 64ä½
+#å°†è¯¥è„šæœ¬åŠç›¸åº”çš„é…ç½®æ–‡ä»¶æ”¾è‡³æœåŠ¡å™¨æ‰§è¡Œå³å¯
 
-#°²×°×é¼ş
+#å®‰è£…ç»„ä»¶
 yum -y install gcc-c++ bzip2 bzip2-devel libpng-devel libtiff-devel freetype-devel zlib zlib-devel libtool  gcc make
 yum -y install autoconf e4fsprogs libjpeg  libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel krb5 krb5-devel libidn libidn-devel openssl openssl-devel openldap openldap-devel  openldap-clients openldap-servers ImageMagick-devel patch libaio gd-devel
 
-#»ñÈ¡µ±Ç°Â·¾¶
+#è·å–å½“å‰è·¯å¾„
 cur_dir=$(pwd)
 
 
 
 
-#±àÒë°²×°libjpeg
-#½øÈëÏÂÔØÄ¿Â¼
+#ç¼–è¯‘å®‰è£…libjpeg
+#è¿›å…¥ä¸‹è½½ç›®å½•
 if [ -d $1"/soft/jpeg" ];then 
    cd $1/soft/jpeg
 else
@@ -33,8 +33,8 @@ mkdir $2/jpeg/man/man1
 make && make install
 
 
-#±àÒë°²×°libiconv
-#½øÈëÏÂÔØÄ¿Â¼
+#ç¼–è¯‘å®‰è£…libiconv
+#è¿›å…¥ä¸‹è½½ç›®å½•
 if [ -d $1"/soft/libiconv" ];then 
    cd $1/soft/libiconv
 else
@@ -45,8 +45,8 @@ fi
 ./configure  --prefix=$2/libiconv
 make && make install
 
-#±àÒë°²×°GD2
-#½øÈëÏÂÔØÄ¿Â¼
+#ç¼–è¯‘å®‰è£…GD2
+#è¿›å…¥ä¸‹è½½ç›®å½•
 if [ -d $1"/soft/libgd" ];then 
    cd $1/soft/libgd
 else
@@ -57,8 +57,8 @@ fi
 ./configure --prefix=$2/gd2 --with-jpeg=$2/jpeg/
 make && make install
 
-#±àÒë°²×°LibXML2
-#½øÈëÏÂÔØÄ¿Â¼
+#ç¼–è¯‘å®‰è£…LibXML2
+#è¿›å…¥ä¸‹è½½ç›®å½•
 if [ -d $1"/soft/libxml2" ];then 
    cd $1/soft/libxml2
 else
@@ -70,8 +70,8 @@ fi
 make && make install
 
 
-#±àÒë°²×°PCRE
-#½øÈëÏÂÔØÄ¿Â¼
+#ç¼–è¯‘å®‰è£…PCRE
+#è¿›å…¥ä¸‹è½½ç›®å½•
 if [ -d $1"/soft/pcre" ];then 
    cd $1/soft/pcre
 else
@@ -82,10 +82,10 @@ fi
 ./configure --prefix=$2/pcre
 make && make install
 
-#ÀÁÈË°²×° mcrypt
+#æ‡’äººå®‰è£… mcrypt
 #yum install libmcrypt libmcrypt-devel mcrypt mhash
-#±àÒë°²×°LibMcrypt
-#½øÈëÏÂÔØÄ¿Â¼
+#ç¼–è¯‘å®‰è£…LibMcrypt
+#è¿›å…¥ä¸‹è½½ç›®å½•
 if [ -d $1"/soft/libmcrypt" ];then 
    cd $1/soft/libmcrypt
 else
@@ -114,8 +114,8 @@ ln -s $2/lib/libmhash.so.2 /usr/lib/libmhash.so.2
 ln -s $2/lib/libmhash.so.2.0.1 /usr/lib/libmhash.so.2.0.1
 
 
-#±àÒë°²×°mhash
-#½øÈëÏÂÔØÄ¿Â¼
+#ç¼–è¯‘å®‰è£…mhash
+#è¿›å…¥ä¸‹è½½ç›®å½•
 if [ -d $1"/soft/mhash" ];then 
    cd $1/soft/mhash
 else
@@ -134,8 +134,8 @@ ln -s $2/lib/libmhash.so.2 /usr/lib64/libmhash.so.2
 ln -s $2/lib/libmhash.so.2.0.1 /usr/lib64/libmhash.so.2.0.1  
 
 
-#±àÒë°²×°mcrypt
-#½øÈëÏÂÔØÄ¿Â¼
+#ç¼–è¯‘å®‰è£…mcrypt
+#è¿›å…¥ä¸‹è½½ç›®å½•
 if [ -d $1"/soft/mcrypt" ];then 
    cd $1/soft/mcrypt
 else
@@ -149,7 +149,7 @@ make
 make install
 
 
-#ÆäËü×é½¨±àÒëºÍÉèÖÃ
+#å…¶å®ƒç»„å»ºç¼–è¯‘å’Œè®¾ç½®
 ln -s /usr/lib64/libpng.so /usr/lib/
 yum -y install openldap openldap-devel curl-devel
 cp -frp /usr/lib64/libldap* /usr/lib/
@@ -158,8 +158,8 @@ ln -s $2/mysql/lib/libmysqlclient.so.18 /usr/lib64
 
 
 
-#±àÒë°²×°PHP
-#½øÈëÏÂÔØÄ¿Â¼
+#ç¼–è¯‘å®‰è£…PHP
+#è¿›å…¥ä¸‹è½½ç›®å½•
 if [ -d $1"/soft/php" ];then 
    cd $1/soft/php
 else
@@ -177,19 +177,19 @@ fi
 --enable-zip --enable-soap
 make && make install
 
-#¿½±´PHP-FPMÅäÖÃÎÄ¼ş
+#æ‹·è´PHP-FPMé…ç½®æ–‡ä»¶
 cat $cur_dir/php-fpm.conf > $2/php/etc/php-fpm.conf
 
-#¿½±´PHP.INIÅäÖÃÎÄ¼ş
+#æ‹·è´PHP.INIé…ç½®æ–‡ä»¶
 cat $cur_dir/php.ini > $2/php/etc/php.ini
 
-#¿½±´Ö´ĞĞ½Å±¾µ½·şÎñÄ¿Â¼
+#æ‹·è´æ‰§è¡Œè„šæœ¬åˆ°æœåŠ¡ç›®å½•
 cat $cur_dir/php-fpm > /etc/init.d/php-fpm
 
-#ĞŞ¸Äphp-fpmÈ¨ÏŞ
+#ä¿®æ”¹php-fpmæƒé™
 chmod 755 /etc/init.d/php-fpm
 
-#¿ªÆôphp-fpm·şÎñ
+#å¼€å¯php-fpmæœåŠ¡
 chkconfig --add php-fpm
 chkconfig --level 3 php-fpm on
 service php-fpm start
