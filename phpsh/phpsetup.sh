@@ -168,17 +168,13 @@ else
    cd $1/soft/php
 fi
 ./configure --prefix=$2/php --with-config-file-path=$2/php/etc \
+--with-mysql=$2/mysql --with-mysqli=$2/mysql/bin/mysql_config \
 --with-iconv-dir=$2/lib --with-freetype-dir=$2/lib --with-jpeg-dir=$2/jpeg --with-png-dir --with-zlib \
---with-libxml-dir=$2/usr --enable-xml --enable-bcmath \
---enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl \
+--with-libxml-dir=/usr --enable-xml   --enable-safe-mode --enable-bcmath \
+--enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl --with-curlwrappers \
 --enable-mbregex  --enable-fpm  --enable-mbstring --with-mcrypt --with-gd=$2/gd2/ --enable-gd-native-ttf \
 --with-openssl --with-mhash --enable-pcntl --enable-sockets --with-ldap --with-ldap-sasl --with-xmlrpc \
---enable-zip --enable-soap \
---enable-pdo --with-pdo-mysql --with-mysqli
-#php5.5ƒ¨»œmysqli —°‘Ò≈‰÷√
-#--with-mysql=$2/mysql --with-mysqli=$2/mysql/bin/mysql_config \
-#php5.5»•µÙµƒ≈‰÷√
-#--enable-safe-mode --with-curlwrappers \
+--enable-zip --enable-soap
 make && make install
 
 #øΩ±¥PHP-FPM≈‰÷√Œƒº˛
@@ -199,4 +195,14 @@ chkconfig --level 3 php-fpm on
 service php-fpm start
 
 $1/LNMP.sh
+
+
+
+
+
+
+
+
+
+
 
