@@ -32,7 +32,7 @@ mkdir -p /data/logs/test/
 
 #版本信息伪装
 sed -i 's/1.0.10/7.5.1.0.10/g;s/"nginx\/" NGINX_VERSION/"Microsoft-IIS\/" NGINX_VERSION/g;s/"NGINX"/"Microsoft-IIS"/g' ./src/core/nginx.h
-./configure --prefix=$2/nginx --with-http_stub_status_module 
+./configure --prefix=$2/nginx --with-http_stub_status_module --with-http_ssl_module
 make && make install
 
 #备份并修改nginx.conf
