@@ -168,7 +168,7 @@ else
    cd $1/soft/php
 fi
 ./configure --prefix=$2/php --with-config-file-path=$2/php/etc \
---with-mysql=$2/mysql --with-mysqli=$2/mysql/bin/mysql_config \
+--with-mysql=$2/mysql --with-mysqli=$2/mysql/bin/mysql_config --with-pdo-mysql=$2/mysql \
 --with-iconv-dir=$2/lib --with-freetype-dir=$2/lib --with-jpeg-dir=$2/jpeg --with-png-dir --with-zlib \
 --with-libxml-dir=/usr --enable-xml   --enable-safe-mode --enable-bcmath \
 --enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl --with-curlwrappers \

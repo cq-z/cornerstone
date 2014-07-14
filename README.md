@@ -4,7 +4,7 @@ LNMP安装脚本
 nginx 1.6.0				http://nginx.org/en/download.html
 
 
-php 5.5.8				http://cn2.php.net/downloads.php
+php 5.5.14				http://cn2.php.net/downloads.php
 	--php扩展			http://pecl.php.net/packages.php 
                   libjpeg:v9a		http://www.ijg.org/
 		  libiconv:1.14		http://www.gnu.org/software/libiconv/#downloading
