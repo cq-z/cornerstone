@@ -1,13 +1,9 @@
 # This script run at 00:00
-
 # The Nginx logs path
 log_dir="/data/logs"
-
 #The path for Nginx logs path by cuted
 date=`date -d "yesterday" +"%Y%m%d"`
-
 remove=30
-
 ls ${log_dir}> /tmp/filename
 for file in `cat /tmp/filename`
 do
